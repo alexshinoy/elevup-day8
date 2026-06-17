@@ -62,13 +62,6 @@ body {
   color: var(--bg-main);
 }
 
-@media (max-width: 768px) {
-  aside { display: none !important; }
-  nav form input { width: 150px !important; }
-  .page-content > div { padding: 10px !important; }
-}
-/* --- Add this to the BOTTOM of your src/App.css --- */
-
 /* Skeleton Loading Animation */
 @keyframes shimmer {
   0% { background-position: -468px 0; }
@@ -111,22 +104,33 @@ body.dark .skeleton {
 .comment-input:focus {
   border-bottom: 2px solid var(--text-main);
 }
-/* Dropdown Menu Hover Effect */
+
 .dropdown-item:hover {
   background-color: var(--hover-bg);
 }
+
 /* Responsive Sidebar */
 @media (max-width: 768px) {
   .app-container {
     flex-direction: column;
   }
   
-  /* Hide sidebar on small screens */
-  aside {
-    display: none;
+  .sidebar {
+    display: none; 
+    position: fixed; 
+    top: 60px; 
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    z-index: 9999 !important; 
+    background: var(--bg-surface);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
   }
   
-  /* Make content full width */
+  .sidebar.open {
+    display: block !important;
+  }
+  
   .page-content {
     width: 100%;
     padding: 10px;
