@@ -4,20 +4,26 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Feed from "./pages/Feed";
 import VideoDetail from "./pages/VideoDetail";
-import "./App.css"; 
+import "./App.css";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
     <Router basename="/elevup-day8">
       <div className="app-container">
-        <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <Navbar 
+          searchTerm={searchTerm} 
+          setSearchTerm={setSearchTerm} 
+          toggleSidebar={toggleSidebar} 
+        />
         <div className="main-content">
-          <Sidebar />
+          <Sidebar isOpen={isSidebarOpen} />
           <div className="page-content">
             <Routes>
-              {/* Pass a 'view' prop so the Feed knows what data to load */}
               <Route path="/" element={<Feed view="home" searchTerm={searchTerm} />} />
               <Route path="/explore" element={<Feed view="explore" searchTerm={searchTerm} />} />
               <Route path="/subscriptions" element={<Feed view="subscriptions" searchTerm={searchTerm} />} />

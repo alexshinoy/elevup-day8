@@ -115,3 +115,20 @@ body.dark .skeleton {
 .dropdown-item:hover {
   background-color: var(--hover-bg);
 }
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  /* Hide sidebar on small screens */
+  aside {
+    display: none;
+  }
+  
+  /* Make content full width */
+  .page-content {
+    width: 100%;
+    padding: 10px;
+  }
+}
