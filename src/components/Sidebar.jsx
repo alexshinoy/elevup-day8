@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Sidebar({ isOpen }) {
   const location = useLocation();
-
   const getStyle = (path) => ({
     textDecoration: 'none',
     color: 'var(--text-main)',
