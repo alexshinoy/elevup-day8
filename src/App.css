@@ -1,0 +1,117 @@
+:root {
+  --bg-main: #f9f9f9;
+  --bg-surface: #ffffff;
+  --text-main: #0f0f0f;
+  --text-muted: #606060;
+  --border: #cccccc;
+  --hover-bg: #e5e5e5;
+}
+
+body.dark {
+  --bg-main: #0f0f0f;
+  --bg-surface: #0f0f0f;
+  --text-main: #f1f1f1;
+  --text-muted: #aaaaaa;
+  --border: #3f3f3f;
+  --hover-bg: #272727;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden; 
+}
+
+.page-content {
+  flex: 1;
+  overflow-y: auto; 
+  background-color: var(--bg-main);
+}
+
+.category-pill {
+  padding: 6px 12px;
+  background-color: var(--hover-bg);
+  color: var(--text-main);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category-pill.active {
+  background-color: var(--text-main);
+  color: var(--bg-main);
+}
+
+@media (max-width: 768px) {
+  aside { display: none !important; }
+  nav form input { width: 150px !important; }
+  .page-content > div { padding: 10px !important; }
+}
+/* --- Add this to the BOTTOM of your src/App.css --- */
+
+/* Skeleton Loading Animation */
+@keyframes shimmer {
+  0% { background-position: -468px 0; }
+  100% { background-position: 468px 0; }
+}
+
+.skeleton {
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 100%;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+}
+
+body.dark .skeleton {
+  background: #202020;
+  background-image: linear-gradient(to right, #202020 0%, #333333 20%, #202020 40%, #202020 100%);
+}
+
+.skeleton-box { height: 180px; border-radius: 12px; margin-bottom: 10px; }
+.skeleton-text { height: 15px; border-radius: 4px; margin-bottom: 8px; }
+.skeleton-text.short { width: 60%; }
+
+/* Comments UI */
+.comment-input {
+  width: 100%;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-main);
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.comment-input:focus {
+  border-bottom: 2px solid var(--text-main);
+}
+/* Dropdown Menu Hover Effect */
+.dropdown-item:hover {
+  background-color: var(--hover-bg);
+}
