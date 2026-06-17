@@ -17,7 +17,7 @@ export default function Sidebar({ isOpen }) {
   });
 
   return (
-    <aside className={`sidebar ${isOpen ? 'open' : ''}`} style={{ width: '220px', padding: '15px', borderRight: `1px solid var(--border)`, height: '100vh', backgroundColor: 'var(--bg-surface)' }}>
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`} style={{ width: '220px', padding: '15px', borderRight: `1px solid var(--border)`, backgroundColor: 'var(--bg-surface)' }}>
       <ul style={{ listStyleType: 'none', padding: 0 }}>
         <li style={{ marginBottom: '5px' }}><Link to="/" style={getStyle('/')}><Home size={22}/> Home</Link></li>
         <li style={{ marginBottom: '5px' }}><Link to="/explore" style={getStyle('/explore')}><Compass size={22}/> Explore</Link></li>

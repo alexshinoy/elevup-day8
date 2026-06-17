@@ -111,30 +111,25 @@ body.dark .skeleton {
 
 /* ... (Keep all existing styles at the top) ... */
 
-/* Responsive Sidebar */
+/* ... (Keep your existing styles at the top) ... */
+
 @media (max-width: 768px) {
-  .app-container {
-    flex-direction: column;
-  }
-  
-  /* Force hide by default and fix position for overlay */
   .sidebar {
-    display: none !important; 
-    position: fixed !important;
-    top: 60px !important;
-    left: 0 !important;
-    width: 220px !important;
-    height: 100vh !important;
-    z-index: 9999 !important;
-    background: var(--bg-surface) !important;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.2) !important;
-  }
-  
-  /* Force show ONLY when the 'open' class is present */
-  .sidebar.open {
+    position: fixed;
+    top: 60px;
+    left: -220px;
+    width: 220px;
+    height: 100vh;
+    transition: left 0.3s ease;
+    z-index: 9998;
+    background: var(--bg-surface);
     display: block !important;
   }
   
+  .sidebar.open {
+    left: 0;
+  }
+
   .page-content {
     width: 100%;
     padding: 10px;
