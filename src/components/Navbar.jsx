@@ -26,7 +26,7 @@ export default function Navbar({ searchTerm, setSearchTerm, toggleSidebar }) {
   return (
     <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', borderBottom: `1px solid var(--border)`, backgroundColor: 'var(--bg-surface)' }}>
       
-      {/* Left side: Menu & Logo */}
+      {/* Left: Menu & Logo */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
         <Menu onClick={toggleSidebar} style={{ cursor: 'pointer', color: 'var(--text-main)' }} />
         <Link to="/" onClick={() => setSearchTerm("")} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '5px' }}>
@@ -35,7 +35,7 @@ export default function Navbar({ searchTerm, setSearchTerm, toggleSidebar }) {
         </Link>
       </div>
       
-      {/* Middle: Search Bar */}
+      {/* Middle: Search */}
       <form onSubmit={handleSearch} style={{ display: 'flex', alignItems: 'center' }}>
         <input 
           type="text" 
@@ -49,9 +49,8 @@ export default function Navbar({ searchTerm, setSearchTerm, toggleSidebar }) {
         </button>
       </form>
 
-      {/* Right side: Theme Toggle & Profile Dropdown */}
+      {/* Right: Theme & Avatar */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '20px', position: 'relative' }}>
-        
         <button onClick={toggleTheme} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-main)' }}>
           {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
         </button>
@@ -63,7 +62,7 @@ export default function Navbar({ searchTerm, setSearchTerm, toggleSidebar }) {
           style={{ width: '36px', height: '36px', borderRadius: '50%', cursor: 'pointer', objectFit: 'cover', border: '1px solid var(--border)' }}
         />
 
-        {/* FLOATING DROPDOWN MENU */}
+        {/* DROPDOWN MENU - This is the part that shows up when you click the avatar */}
         {isProfileOpen && (
           <div style={{ 
             position: 'absolute', top: '50px', right: '0', width: '280px', 
@@ -71,7 +70,6 @@ export default function Navbar({ searchTerm, setSearchTerm, toggleSidebar }) {
             borderRadius: '12px', boxShadow: '0px 8px 24px rgba(0,0,0,0.15)', 
             overflow: 'hidden', zIndex: 1000 
           }}>
-            
             <div style={{ padding: '16px', borderBottom: `1px solid var(--border)`, display: 'flex', alignItems: 'center', gap: '15px' }}>
               <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&q=80" alt="Profile" style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
               <div>
