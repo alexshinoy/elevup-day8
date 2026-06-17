@@ -10,7 +10,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <Router>
+    <Router basename="/elevup-day8">
       <div className="app-container">
         <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <div className="main-content">
